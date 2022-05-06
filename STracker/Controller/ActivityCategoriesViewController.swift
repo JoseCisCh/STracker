@@ -10,7 +10,8 @@ import UIKit
 
 class ActivityCategoriesViewController: AppTheme {
     
-    let activities: [[String: String]] = [["image": "running", "name": "Running" ], ["image": "cycling", "name": "Cycling"], ["image": "gymnastics", "name": "Gymnastics"], ["image": "pilates", "name": "Pilates"], ["image": "stepper", "name": "Stepper"], ["image": "swimming", "name": "Swimming"], ["image": "tennis2", "name": "Tennis"], ["image": "workout", "name": "Workout"]]
+    let activities: [[String: Any]] = [["image": "running", "name": "Running", "category": ActivityCategory.running ], ["image": "cycling", "name": "Cycling", "category": ActivityCategory.cycling], ["image": "gymnastics", "name": "Gymnastics", "category": ActivityCategory.gymnastics], ["image": "pilates", "name": "Pilates", "category": ActivityCategory.pilates], ["image": "stepper", "name": "Stepper", "category": ActivityCategory.stepper], ["image": "swimming", "name": "Swimming", "category": ActivityCategory.swimming], ["image": "tennis2", "name": "Tennis", "category": ActivityCategory.tennis], ["image": "workout", "name": "Workout", "category": ActivityCategory.workout]]
+    var selectedCategory: ActivityCategory = .running
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     
@@ -22,13 +23,32 @@ class ActivityCategoriesViewController: AppTheme {
         setTheme()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? NewTimeActivityViewController {
+            vc.activityCategory = selectedCategory
+        } else if let vc = segue.destination as? NewDistanceActivityViewController {
+            vc.activityCategory = selectedCategory
+        }
+    }
+    
 }
 
 //MARK: - UICollectionViewDelegate
 extension ActivityCategoriesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "newActivitySegue", sender: self)
+
+        self.selectedCategory = activities[indexPath.row]["category"] as! ActivityCategory
+        switch activities[indexPath.row]["category"] as! ActivityCategory {
+        case .stepper, .running, .swimming, .cycling:
+            performSegue(withIdentifier: "newDistanceActivitySegue", sender: self)
+            
+        default:
+            performSegue(withIdentifier: "newTimeActivitySegue", sender: self)
+        }
+        
+        
+        
     }
 }
 
@@ -39,8 +59,9 @@ extension ActivityCategoriesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as? CategoryCell {
-            cell.activityNameLabel.text = activities[indexPath.row]["name"]
-            cell.activityImageView.image = UIImage(named: activities[indexPath.row]["image"]!)
+            cell.activityNameLabel.text = (activities[indexPath.row]["name"] as! String)
+            cell.activityImageView.image = UIImage(named: activities[indexPath.row]["image"] as! String)
+            cell.category = (activities[indexPath.row]["category"] as! ActivityCategory)
             return cell
         }
         

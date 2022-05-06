@@ -33,12 +33,15 @@ class ActivitiesView: AppTheme {
         
         setTheme()
         
-        let activity1 = Activity(name: "Running", description: "I ran like 20 kilomemters")
-        let activity2 = Activity(name: "Push-Up", description: "I did 100 push ups")
+        let activity1 = Activity(name: "Running", description: "I ran like 20 kilomemters", category: .running)
+        let activity2 = Activity(name: "Push-Up", description: "I did 100 push ups", category: .workout)
+        
+        
         do {
             try realm.write({
                 realm.add(activity1)
                 realm.add(activity2)
+                
             })
         } catch {
             print(error)
@@ -123,6 +126,7 @@ extension ActivitiesView: UITableViewDataSource {
         cell.delegate = self
         cell.name = activities![indexPath.row].name
         cell.actDescription = activities![indexPath.row].actDescription
+        cell.category = activities![indexPath.row].activityCategory
         cell.layer.backgroundColor = UIColor.clear.cgColor
         cell.backgroundColor = .clear
 //        cell.backgroundColor = UIColor(gradientStyle: .leftToRight, withFrame: tableView.rectForRow(at: indexPath), andColors: [UIColor.flatWhite()!, UIColor(hexString: "#219ebc")!, UIColor(hexString: "#023047")!])
