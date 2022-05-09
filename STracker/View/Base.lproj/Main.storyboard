@@ -39,13 +39,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="SOX-oN-00e">
                             <connections>
-                                <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="BfS-40-vQI"/>
                                 <segue destination="pmX-PY-3GP" kind="show" id="9Et-8Z-Iav"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="pAj-i3-gd2" id="WhW-RW-qpL"/>
+                        <segue destination="CAe-y7-DcL" kind="show" id="Wrf-ew-M7z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -350,7 +350,23 @@
             </objects>
             <point key="canvasLocation" x="3107" y="-184"/>
         </scene>
-        <!--New Distance Activity View Controller-->
+        <!--Activity Details-->
+        <scene sceneID="ImC-Wg-UyH">
+            <objects>
+                <viewController id="CAe-y7-DcL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xoi-Pi-lUq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jv0-9R-Sna"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Activity Details" id="iVZ-Mm-bkX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="drH-I8-mmb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="875"/>
+        </scene>
+        <!--New Activity-->
         <scene sceneID="PRG-RM-urV">
             <objects>
                 <viewController id="oCb-Z5-Ydm" customClass="NewDistanceActivityViewController" customModule="STracker" sceneMemberID="viewController">
@@ -362,7 +378,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="912"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCw-TB-QYU">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="956"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="972"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Activity Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="36b-HU-jEp">
                                                 <rect key="frame" x="39" y="10" width="336" height="34"/>
@@ -433,21 +449,22 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYg-o8-JEA">
-                                                <rect key="frame" x="39" y="547.5" width="336" height="236.5"/>
+                                                <rect key="frame" x="39" y="547.5" width="336" height="252.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l0U-fY-uke">
-                                                        <rect key="frame" x="0.0" y="0.0" width="336" height="236.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="336" height="252.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How far did you travel?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOd-mA-1Iy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="336" height="20.5"/>
+                                                                <rect key="frame" x="45" y="8" width="246" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eI9-ai-1SC">
-                                                                <rect key="frame" x="0.0" y="20.5" width="336" height="216"/>
+                                                                <rect key="frame" x="45" y="28.5" width="246" height="216"/>
                                                             </pickerView>
                                                         </subviews>
+                                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="45" bottom="8" trailing="45"/>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -459,12 +476,15 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtK-kw-3nl">
-                                                <rect key="frame" x="0.0" y="855" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="871" width="414" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="kfC-Q8-fac"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Add activity"/>
+                                                <connections>
+                                                    <action selector="addNewActivity:" destination="oCb-Z5-Ydm" eventType="touchUpInside" id="9fa-ep-Ref"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -509,7 +529,7 @@
                             <constraint firstItem="68C-1W-Kl5" firstAttribute="leading" secondItem="h7q-Xx-DAF" secondAttribute="leading" id="r46-Fx-SUR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="T8S-Xc-vgG"/>
+                    <navigationItem key="navigationItem" title="New Activity" id="T8S-Xc-vgG"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="activityNameLabel" destination="36b-HU-jEp" id="yeb-1X-Qac"/>
@@ -517,7 +537,9 @@
                         <outlet property="descriptionTextView" destination="Sd3-bm-pBO" id="SEv-go-CbT"/>
                         <outlet property="descriptionView" destination="N8t-v0-0Vk" id="UIZ-p1-Na4"/>
                         <outlet property="distancePickerView" destination="eI9-ai-1SC" id="K2u-Wa-g3g"/>
-                        <outlet property="timePickerView" destination="ace-8d-vPQ" id="uMV-Ks-mF1"/>
+                        <outlet property="distanceView" destination="gYg-o8-JEA" id="Ke9-NF-9pp"/>
+                        <outlet property="timePicker" destination="ace-8d-vPQ" id="JTQ-cH-RdB"/>
+                        <outlet property="timePickerView" destination="YTa-Nz-QrQ" id="THb-fw-npn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJC-v0-3zo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
