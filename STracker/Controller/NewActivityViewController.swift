@@ -41,23 +41,8 @@ class NewActivityViewController: AppTheme {
         activityNameLabel.delegate = self
         descriptionTextView.delegate = self
         
-        let descriptionViewBlurEffectView = UIVisualEffectView(effect: blurEffect)
-        descriptionViewBlurEffectView.frame = descriptionView.bounds
-        descriptionViewBlurEffectView.alpha = 0.25
-        descriptionViewBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        descriptionView.clipsToBounds = true
-        descriptionView.layer.cornerRadius = 8
-        descriptionView.addSubview(descriptionViewBlurEffectView)
-        descriptionView.sendSubviewToBack(descriptionViewBlurEffectView)
-        
-        let timePickerBlurEffectView = UIVisualEffectView(effect: blurEffect)
-        timePickerBlurEffectView.frame = timePickerView.bounds
-        timePickerBlurEffectView.alpha = 0.25
-        timePickerBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        timePickerView.clipsToBounds = true
-        timePickerView.layer.cornerRadius = 8
-        timePickerView.addSubview(timePickerBlurEffectView)
-        timePickerView.sendSubviewToBack(timePickerBlurEffectView)
+        backgroundBlurView(for: descriptionView, cornerRadious: 15)
+        backgroundBlurView(for: timePickerView, cornerRadious: 15)
 
         
         addActivityButton.backgroundColor = elementsBackgroundColor

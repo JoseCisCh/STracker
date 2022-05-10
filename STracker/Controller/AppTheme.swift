@@ -26,5 +26,16 @@ class AppTheme: UIViewController {
         
         
     }
+    
+    func backgroundBlurView(for viewToApply: UIView, cornerRadious: Double = 0)  {
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = viewToApply.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewToApply.layer.cornerRadius = cornerRadious
+        viewToApply.clipsToBounds = true
+        viewToApply.addSubview(blurEffectView)
+        viewToApply.sendSubviewToBack(blurEffectView)
+    }
 }
 

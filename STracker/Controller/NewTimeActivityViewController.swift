@@ -33,10 +33,10 @@ class NewTimeActivityViewController: NewActivityViewController {
             present(alert!, animated: true)
         } else {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH horas y mm minutos"
+            dateFormatter.dateFormat = "HH:mm"
             let stringifiedDate = dateFormatter.string(from: timePicker.date)
             
-            
+            print(stringifiedDate)
             let newActivity = Activity(name: activityNameLabel.text!, description: descriptionTextView.text, duration: stringifiedDate, category: self.activityCategory, activityDate: Date())
             
             Model.shared.addActivity(newActivity: newActivity)

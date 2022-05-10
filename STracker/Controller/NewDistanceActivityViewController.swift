@@ -28,18 +28,7 @@ class NewDistanceActivityViewController: NewActivityViewController {
 
     override func setTheme() {
         super.setTheme()
-        
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
-        
-        let distanceViewBlurEffectView = UIVisualEffectView(effect: blurEffect)
-        distanceViewBlurEffectView.frame = distanceView.bounds
-        distanceViewBlurEffectView.alpha = 0.25
-        distanceViewBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        distanceView.clipsToBounds = true
-        distanceView.layer.cornerRadius = 8
-        distanceView.addSubview(distanceViewBlurEffectView)
-        distanceView.sendSubviewToBack(distanceViewBlurEffectView)
-        
+        backgroundBlurView(for: distanceView, cornerRadious: 15)
     }
     
     
@@ -50,7 +39,7 @@ class NewDistanceActivityViewController: NewActivityViewController {
             present(alert!, animated: true)
         } else {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH horas y mm minutos"
+            dateFormatter.dateFormat = "HH:mm"
             
             // Getting and setting distance data
             let stringifiedDate = dateFormatter.string(from: timePicker.date)

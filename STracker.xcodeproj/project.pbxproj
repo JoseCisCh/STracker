@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2785F3188862F4EC96EE21F9 /* Pods_STracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58047443D620F193145EDB3 /* Pods_STracker.framework */; };
+		490D9C222829D834009BA9B7 /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D9C212829D834009BA9B7 /* ActivityDetailsViewController.swift */; };
 		49115B2128256BA70043F92F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49115B2028256BA70043F92F /* Model.swift */; };
 		491694AD281D7D19003344E9 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491694AC281D7D19003344E9 /* NewActivityViewController.swift */; };
 		491694AF281D826A003344E9 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491694AE281D826A003344E9 /* AppTheme.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		335A0BC97B231237B0E8EF54 /* Pods-STracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STracker.debug.xcconfig"; path = "Target Support Files/Pods-STracker/Pods-STracker.debug.xcconfig"; sourceTree = "<group>"; };
+		490D9C212829D834009BA9B7 /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		49115B2028256BA70043F92F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		491694AC281D7D19003344E9 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
 		491694AE281D826A003344E9 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				496E745228217E7A00A05E83 /* ActivityCategoriesViewController.swift */,
 				49B52A072821DE3600683BA0 /* NewTimeActivityViewController.swift */,
 				49B52A0928221AA600683BA0 /* NewDistanceActivityViewController.swift */,
+				490D9C212829D834009BA9B7 /* ActivityDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				496A766C281A109B0068F8BE /* Activity.swift in Sources */,
 				494F13E8281B55B800BD757E /* ConfigViewController.swift in Sources */,
 				491694AD281D7D19003344E9 /* NewActivityViewController.swift in Sources */,
+				490D9C222829D834009BA9B7 /* ActivityDetailsViewController.swift in Sources */,
 				496E745328217E7A00A05E83 /* ActivityCategoriesViewController.swift in Sources */,
 				49B52A082821DE3600683BA0 /* NewTimeActivityViewController.swift in Sources */,
 				49115B2128256BA70043F92F /* Model.swift in Sources */,

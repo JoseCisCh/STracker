@@ -14,7 +14,9 @@ class ActivitiesView: AppTheme {
     
     let realm = try! Realm()
     
-    var activities: Results<Activity>?
+    //var activities: Results<Activity>?
+    
+    var selectedActivity: Activity?
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -37,6 +39,12 @@ class ActivitiesView: AppTheme {
         super.viewWillAppear(false)
         tableView.reloadData()
         setTheme()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let activityVC = segue.destination as? ActivityDetailsViewController {
+            activityVC.activity = self.selectedActivity
+        }
     }
 
 }
@@ -78,6 +86,8 @@ extension ActivitiesView:  UITableViewDelegate, SwipeTableViewCellDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.selectedActivity = Model.shared.activities![indexPath.row]
+        performSegue(withIdentifier: "activityDetailsSegue", sender: self)
     }
 }
 
