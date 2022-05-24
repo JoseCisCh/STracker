@@ -10,6 +10,7 @@ import ChameleonFramework
 
 class ConfigViewController: AppTheme {
 
+    @IBOutlet weak var colorsBlockView: UIView!
     @IBOutlet weak var verticalStackView: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +18,14 @@ class ConfigViewController: AppTheme {
             if let hStackCasted = hStack as? UIStackView {
                 hStackCasted.subviews.forEach { button in
                     if let buttonCasted = button as? UIButton {
-                        buttonCasted.layer.cornerRadius = 30
+                        buttonCasted.layer.cornerRadius = 10
                         buttonCasted.clipsToBounds = true
                     }
                 }
             }
         }
+        backgroundBlurView(for: colorsBlockView, cornerRadious: 15)
+        
         // Do any additional setup after loading the view.
     }
     

@@ -40,14 +40,17 @@ class NewActivityViewController: AppTheme {
         
         activityNameLabel.delegate = self
         descriptionTextView.delegate = self
-        
+        activityNameLabel.layer.borderWidth = 0
+        activityNameLabel.layer.borderColor = UIColor.clear.cgColor
+        activityNameLabel.backgroundColor = UIColor.clear
+        backgroundBlurView(for: activityNameLabel, cornerRadious: 5)
         backgroundBlurView(for: descriptionView, cornerRadious: 15)
         backgroundBlurView(for: timePickerView, cornerRadious: 15)
-
+        backgroundBlurView(for: addActivityButton, cornerRadious: 15)
         
-        addActivityButton.backgroundColor = elementsBackgroundColor
-        addActivityButton.layer.cornerRadius = 8
-        addActivityButton.tintColor = contrastLetterColor
+//        addActivityButton.backgroundColor = elementsBackgroundColor
+//        addActivityButton.layer.cornerRadius = 8
+//        addActivityButton.tintColor = contrastLetterColor
 
     }
     

@@ -29,7 +29,7 @@ class ActivityDetailsViewController: AppTheme {
         activityDurationLabel.text = "\(activity!.duration!) hours"
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy, HH:mm"
         
         let activityDateString = "Activity done:  \(dateFormatter.string(from: activity!.activityDate))"
         activityDateLabel.text = activityDateString

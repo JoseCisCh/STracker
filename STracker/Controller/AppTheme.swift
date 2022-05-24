@@ -32,6 +32,7 @@ class AppTheme: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = viewToApply.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.isUserInteractionEnabled = false
         viewToApply.layer.cornerRadius = cornerRadious
         viewToApply.clipsToBounds = true
         viewToApply.addSubview(blurEffectView)
