@@ -10,6 +10,9 @@ import ChameleonFramework
 
 class AppTheme: UIViewController {
     
+    static var principalColor = UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73")
+    static var contastColor = ContrastColorOf(backgroundColor: UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73"), returnFlat: true)
+    
     func setTheme() {
         
         let navBarAppearance = UINavigationBarAppearance()
