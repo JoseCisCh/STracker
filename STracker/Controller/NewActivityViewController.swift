@@ -34,8 +34,8 @@ class NewActivityViewController: AppTheme {
     override func setTheme() {
         super.setTheme()
         
-        let elementsBackgroundColor = ComplementaryFlatColorOf(color: UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73"))
-        let contrastLetterColor = ContrastColorOf(backgroundColor: elementsBackgroundColor, returnFlat: true)
+        let elementsBackgroundColor = ComplementaryFlatColorOf(UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme") ?? "#005f73")!)
+        let contrastLetterColor = ContrastColorOf(elementsBackgroundColor, returnFlat: true)
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         
         activityNameLabel.delegate = self

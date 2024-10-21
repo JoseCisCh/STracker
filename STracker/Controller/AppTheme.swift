@@ -10,22 +10,22 @@ import ChameleonFramework
 
 class AppTheme: UIViewController {
     
-    static var principalColor = UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73")
-    static var contastColor = ContrastColorOf(backgroundColor: UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73"), returnFlat: true)
+    static var principalColor = UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme") ?? "#005f73")
+    static var contastColor = ContrastColorOf(UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme") ?? "#005f73")!, returnFlat: true)
     
     func setTheme() {
         
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.backgroundColor = UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73")
-        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(backgroundColor: UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73"), returnFlat: true)]
-        navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(backgroundColor: UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73"), returnFlat: true)]
+        navBarAppearance.backgroundColor = UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme") ?? "#005f73")
+        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf( UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme") ?? "#005f73")!, returnFlat: true)]
+        navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme") ?? "#005f73")!, returnFlat: true)]
         
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        navigationController?.navigationBar.tintColor = ContrastColorOf(backgroundColor: UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73"), returnFlat: true)
+        navigationController?.navigationBar.tintColor = ContrastColorOf(UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme") ?? "#005f73")!, returnFlat: true)
         
-        view.backgroundColor = UIColor(gradientStyle: .leftToRight, withFrame: view.frame, andColors: [UIColor.flatWhite()!, UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme")) ?? UIColor(hexString: "#005f73")!])
+        view.backgroundColor = UIColor(gradientStyle: .leftToRight, withFrame: view.frame, andColors: [UIColor.flatWhite(), UIColor(hexString: UserDefaults.standard.string(forKey: "colorTheme") ?? "#005f73")!])
         
         
     }

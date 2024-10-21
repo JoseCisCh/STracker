@@ -38,8 +38,8 @@ class ConfigViewController: AppTheme {
     
     
     @IBAction func setNewTheme(_ sender: UIButton) {
-        print(sender.backgroundColor!.hexValue()!)
-        UserDefaults.standard.set(sender.backgroundColor!.hexValue()! , forKey: "colorTheme")
+        print(sender.backgroundColor!.hexValue())
+        UserDefaults.standard.set(sender.backgroundColor!.hexValue() , forKey: "colorTheme")
         
         setTheme()
 

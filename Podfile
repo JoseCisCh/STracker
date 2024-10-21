@@ -8,6 +8,5 @@ target 'STracker' do
   # Pods for STracker
   pod 'RealmSwift', '~>10'
   pod 'SwipeCellKit'
-  pod 'ChameleonFramework/Swift', '2.1.0'
-
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
 end
